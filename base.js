@@ -1,10 +1,9 @@
-var _yt_player={};(
-  function(g){
-    var window=this;
-    /*
+var _yt_player={};(function(g){var window=this;/*
 
  Copyright The Closure Library Authors.
  SPDX-License-Identifier: Apache-2.0
+*/
+/*
 
  (The MIT License)
 
@@ -53,22 +52,25 @@ var _yt_player={};(
    The data format used by the zlib library is described by RFCs (Request for
    Comments) 1950 to 1952 in the files http://tools.ietf.org/html/rfc1950
    (zlib format), rfc1951 (deflate format) and rfc1952 (gzip format).
-
+*/
+/*
 
  Copyright Google LLC
  SPDX-License-Identifier: Apache-2.0
-
+*/
+/*
 
  Copyright Google LLC All Rights Reserved.
 
  Use of this source code is governed by an MIT-style license that can be
  found in the LICENSE file at https://angular.dev/license
+*/
+/*
 
  Copyright 2015-present Dan Abramov
  SPDX-License-Identifier: MIT
 */
-'use strict';
-    var t='url},}youtube.player.web_20251015_22_RC00}}length}X}rr}set}j}join}cmo=pf}call}1}---}path}W}=}get}indexOf}"(;),}N}undefined}/}r}&}cmo}split}push}startsWith}n}scheme}\\.a1\\.googlevideo\\.com$}local}wC}sp}splice}reverse}clone}1969-12-31T17:15:42.000-06:45}cmo=}prototype}slice}/videoplayback}1970-01-01T03:45:06.000+03:45}toString}mn}fromCharCode}fallback_count}1970-01-01T04:01:02.000+04:00}:}file}1970-01-01T01:30:02.000+01:30}match}qiF64}s}1969-12-31T22:45:34.000-01:15}//}playerfallback}forEach}://}\\.googlevideo\\.com$}/api/manifest}https://local}replace}signatureCipher}jK5yWHyDHqsmJ8B5-D-_w8_}Untrusted URL}ej}a1.googlevideo.com}finally}U}assign}([]({}%3D}pop}index.m3u8}RL}/initplayback}unshift}pow}/file/index.m3u8}1970-01-01T02:15:00.000+02:15}1970-01-01T02:16:08.000+02:15}wc}cmo=td}?}Li}1970-01-01T09:00:38.000+09:00}http://local}Uc}1970-01-01T11:15:22.000+11:15}fvip}redirector.googlevideo.com}www.youtube.com}rr?[1-9].*\\.c\\.youtube\\.com$'.split("}"),
+'use strict';var t='url},}youtube.player.web_20251015_22_RC00}}length}X}rr}set}j}join}cmo=pf}call}1}---}path}W}=}get}indexOf}"(;),}N}undefined}/}r}&}cmo}split}push}startsWith}n}scheme}\\.a1\\.googlevideo\\.com$}local}wC}sp}splice}reverse}clone}1969-12-31T17:15:42.000-06:45}cmo=}prototype}slice}/videoplayback}1970-01-01T03:45:06.000+03:45}toString}mn}fromCharCode}fallback_count}1970-01-01T04:01:02.000+04:00}:}file}1970-01-01T01:30:02.000+01:30}match}qiF64}s}1969-12-31T22:45:34.000-01:15}//}playerfallback}forEach}://}\\.googlevideo\\.com$}/api/manifest}https://local}replace}signatureCipher}jK5yWHyDHqsmJ8B5-D-_w8_}Untrusted URL}ej}a1.googlevideo.com}finally}U}assign}([]({}%3D}pop}index.m3u8}RL}/initplayback}unshift}pow}/file/index.m3u8}1970-01-01T02:15:00.000+02:15}1970-01-01T02:16:08.000+02:15}wc}cmo=td}?}Li}1970-01-01T09:00:38.000+09:00}http://local}Uc}1970-01-01T11:15:22.000+11:15}fvip}redirector.googlevideo.com}www.youtube.com}rr?[1-9].*\\.c\\.youtube\\.com$'.split("}"),
 Wps,hDz,Bs,SYY,OY,GeC,Ize,cs,d_D,JFs,R2,sY,az2,LR,wsF,Wh,Q2F,Gn,dt,$_D,Tn,nCY,Y4,gt,iRs,u3,qv,AFs,RDC,Sg,yFs,PsD,eg,ZRs,kb,bRY,s2Y,RV,pa,Vp2,Xs_,IF,mn,qYp,lze,gCF,LpC,Kj_,Wjs,UvC,hOR,jFD,SWL,fHe,tf_,GnY,IHF,u1,dv_,zG,PX,pr,Bt_,b1,HZL,rIz,XW,whp,xK,WE,QFY,mO,CR,fm,tl,Q_,OZC,YU,g4C,FjC,b_,ni,Fu,KLs,hbC,jVz,Uf,mi,mss,tgL,G2z,IPC,dsC,HF,BGD,rr,aZ,YH,TGL,wBs,Fz,$s2,ue,ie,Mh,cWC,PF,nbs,VV,Xz,gbp,vF,FLp,L_,Wj,k2Y,jo,my,tN,Id,d8,ia$,EL,zb$,Qs,NGY,AWL,kw,yWD,vCp,pW,obs,od,Za$,XBY,tG,dB,JG,Cm,C5$,lP2,WnY,UXs,
 H1,hqL,O$,mXe,fkY,uh,IkC,dXD,Has,oA,BdR,ak$,wXD,v1,xr,QvF,YFp,cDY,LB,uW$,kGL,WT,irp,Ndp,Sr,AD2,GN,RqC,IC,dh,er,Ev,M6p,BT,P1s,wh,xX2,iH,KOs,UiY,j0s,PT,p5,ZF,bH,VT,Sop,fcR,tVD,L5,GPD,WJ,IcF,mr,Jl2,tY,eY_,G_,I$,HJ,rF,Y6,cJ,FV,uI,iI,Hmp,AY,R$,yn,Q0p,Ln_,pL,m_F,gU$,XV,vJ,im$,RYY,lI,ylF,bap,MVL,pE2,Jc,oUC,ZmL,bmL,hd,jd,Sd,s0$,td,IL,Qb,ed,D0,HP,rK,vUz,lc$,$I,LOp,O1,Kmz,Wmp,U$p,p6,Z0,jpF,m$p,Xc,vP,fis,C6,tes,hl,Iie,d$p,eWY,ExF,hL,tL,Ki,D$$,rb_,dk,aiD,f_,eG,wMp,Ois,wk,cbs,nx_,Fmp,Od,gk,F9,kxL,iU,Ov,zR,AL,
 M2,RW$,jr,ybY,nK_,sd,VG,PZL,CC,xiD,ufD,lU,YZz,pMs,Zis,uNe,m5,XMF,Sa,vxs,LmD,U0,hO,jF,md,SF,KiC,UhC,jZC,SfC,tA2,Gk_,IP,JO,Ioe,dhs,E0,eA,vj,YfF,O_$,cys,nHs,wK,gHR,FiC,uzs,aP,i_e,Ya,zRC,O0,Ays,yys,MAD,PeD,pFF,Z_2,jG,z1,b_2,sZs,Nj,RP,XFR,vHe,qfp,xhe,oP,loC,Tx,qj,xa,C7,Ky$,WyC,lE,UCR,fde,tos,rlC,dC2,a1,Q6,$E,YE,ca,Pj,d$,zo,R1,Mq,pX,o1,b0,sK,DCL,CX,l0,adz,KG,wjD,Qdp,hM,$CF,SD,tM,YLC,tc,OWR,dv,cNe,Wa,uDs,mT,ED,HI,k4C,iWp,z$p,HN,N8s,TW,ah,NR,QX,pi,R$2,k2,M1,owC,ZWp,bWs,sdF,Vop,vwD,Zl,bp,xCs,CoF,sD,aV,LG,
