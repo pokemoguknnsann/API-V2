@@ -9,9 +9,96 @@ app = Flask(__name__)
 # 外部APIのURLを定数として定義
 EXTERNAL_API_BASE_URL = "https://api-teal-omega.vercel.app/get_data"
 
+
+
+
+# ... 既存の import 文の下に追加 ...
+
+import re
+from typing import Dict, Any, List, Optional
+
+# ... (既存の get_latest_innertube_params 関数など) ...
+
+# =================================================================
+# 3. 新しいヘルパー関数: JSファイルから復号化ロジックを抽出 (New!)
+# =================================================================
+
+def get_decipher_logic(js_url: str) -> Optional[Dict[str, Any]]:
+    """
+    プレーヤーJSファイルをダウンロードし、署名復号化に必要な関数名とロジックを抽出する。
+    """
+    try:
+        # 1. JSファイルをダウンロード
+        print(f"🔄 JSファイルダウンロード中: {js_url}")
+        response = requests.get(js_url)
+        response.raise_for_status()
+        js_code = response.text
+        
+        # 2. 復号化メイン関数の検索
+        # 通常、署名関数は a.split("") のような形式で始まります。
+        # 例: a=function(a){a=a.split("");b.yG(a,72);b.zV(a,3);return a.join("")}
+        # このパターンを見つけ、呼び出し元のオブジェクト名 (ここでは 'b') を抽出します。
+        
+        # main_func_match = re.search(r'a\.split\(""\)\s*;\s*([a-zA-Z0-9$]+)\.[a-zA-Z0-9$]+\(a,\d+\)', js_code)
+        # プレーヤーバージョンによってパターンが変わるため、最も確実な署名復号化関数の検索パターンを探します。
+        
+        # 'a=a.split("");' から始まり 'return a.join("")' で終わる関数を見つけます。
+        # プレーヤーJSは常にアップデートされるため、この正規表現はあなたの base.js の内容に合わせて調整が必要です。
+        
+        # 💡 まずは最も一般的なパターンで関数本体を抽出
+        main_func_match = re.search(r'(\w+)\.sig\|\|(\w+)\.sig=function\s*\(\s*a\s*\)\s*{\s*a\s*=\s*a\.split\(""\)\s*;(.*?)return\s+a\.join\(""\)\s*}', js_code, re.DOTALL)
+        
+        if not main_func_match:
+            print("❌ 署名復号化のメイン関数パターンが見つかりませんでした。")
+            return None
+
+        # 抽出された関数本体のコード
+        signature_operations_code = main_func_match.group(3).strip()
+        # 署名ヘルパー関数が格納されているオブジェクト名 (例: 'b' や 'c')
+        helper_object_name = re.search(r'([a-zA-Z0-9$]+)\.[a-zA-Z0-9$]+\(a,\d+\)', signature_operations_code)
+        
+        if not helper_object_name:
+            print("❌ ヘルパー関数のオブジェクト名が見つかりませんでした。")
+            return None
+        
+        helper_obj_name = helper_object_name.group(1)
+        
+        # 3. ヘルパー関数群のロジックを検索
+        # 例: b={zV:function(a,b){a.splice(0,b)},yG:function(a,b){var c=a[0];a[0]=a[b%a.length];a[b%a.length]=c}}
+        # ヘルパー関数は必ずオブジェクトとして定義されています。
+        helper_func_match = re.search(r'var\s+'+re.escape(helper_obj_name)+r'={.*?};', js_code, re.DOTALL)
+        
+        if not helper_func_match:
+            print(f"❌ ヘルパー関数オブジェクト '{helper_obj_name}' の定義が見つかりませんでした。")
+            return None
+
+        helper_func_body = helper_func_match.group(0)
+
+        # 4. 復号化に必要な情報として返す
+        return {
+            "main_operations": signature_operations_code,
+            "helper_object_name": helper_obj_name,
+            "helper_func_body": helper_func_body,
+            "status": "success"
+        }
+
+    except Exception as e:
+        print(f"❌ JS解析エラー: {e}")
+        return {"status": "error", "message": str(e)}
+
+# ... (既存の fetch_video_data 関数など) ...
+
+
+
+
+
 # =================================================================
 # 1. ヘルパー関数: URL要素の抽出・整形
 # =================================================================
+
+
+
+
 
 def extract_stream_info(format_data: Dict[str, Any]) -> Dict[str, Any]:
     """
